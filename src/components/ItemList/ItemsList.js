@@ -5,7 +5,7 @@ function ItemsList({ cost, setCost }) {
     const [ items, setItems ] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:4000/api/v1/items')
+        fetch('https://we-accelerate-group199-backend.herokuapp.com/api/v1/items')
             .then(res => res.json())
             .then(data => setItems(data));
     }, []);
