@@ -3,7 +3,7 @@ import { useState } from "react"
 function ItemListElement({ item, cost, setCost }) {
     
     const [ itemDetails, setItemDetails ] = useState(null)
-    const [ visible, setVisible ] = useState(true)
+    const [ visible, setVisible ] = useState(true) //if true, then when you press the button, details appear
     const price = item.cost
     
     const HandleCheck = (event) => {
