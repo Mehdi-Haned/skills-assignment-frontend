@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 function ItemListElement({ item, cost, setCost }) {
-    
+
     const HandleCheck = (event) => {
 
         if (event.target.checked) {
