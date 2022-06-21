@@ -34,19 +34,19 @@ function ItemListElement({ item, cost, setCost }) {
 
     return(
         <>
-            <div>
-                <input type="checkbox" value={item.cost} onChange={HandleCheck}/>
-                {item.name} &nbsp; - &nbsp; {price}$ &nbsp; &nbsp;
-                <button onClick={HandleClick}>More details</button>
-                {itemDetails  && (
-                    <div>
-                        <h3>Details:</h3>
-                        <div>Price: {itemDetails.cost}$</div>
-                        <div>Brand: {itemDetails.brand}</div>
-                        <div>Number in stock: {itemDetails.stock}</div>
-                    </div>
+            <tr>
+                <td><input type="checkbox" value={item.cost} onChange={HandleCheck}/>{item.name}</td>
+                <td className="wider"></td>
+                <td>${price}</td>
+                <td><button onClick={HandleClick}>More details</button></td>
+            </tr>
+            {itemDetails  && (
+                    <tr>
+                    Price: ${itemDetails.cost}<br></br>
+                    Brand: {itemDetails.brand}<br></br>
+                    Number in stock: {itemDetails.stock}
+                    </tr>
                 )}
-            </div>
         </>
     )
 };

@@ -3,6 +3,7 @@ import React from 'react'
 import ItemsList from './components/ItemList/ItemsList';
 import { useState } from "react"
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [ cost, setCost ] = useState(0);
@@ -11,10 +12,10 @@ function App() {
     <div>
       <Header/>
     <div className="App">
-          <ItemsList cost={cost} setCost={setCost}/>
-          <h2>Cost:</h2>
-          <div>{cost.toFixed(2)}$</div>
+          <table><ItemsList cost={cost} setCost={setCost}/></table>
+          <h2>Cost: {cost.toFixed(2)}$</h2>
     </div>
+    <Footer/>
     </div>
   );
 }

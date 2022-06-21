@@ -22,8 +22,6 @@ function ItemsList({ cost, setCost }) {
                     <ItemListElement key={item.id} item={item} cost={cost} setCost={setCost}/>
                 ))
             }
-            <br></br>
-            <button onClick={HandleClearCart}>clear cart</button>
         </>
     );
 };
