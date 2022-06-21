@@ -26,7 +26,7 @@ function App() {
             <Checkout />
           </Route>
           <Route exact path="/checkout">
-            <Thanks />
+            <Thanks setCost={setCost}/>
           </Route>
         </Switch>
       </div>
