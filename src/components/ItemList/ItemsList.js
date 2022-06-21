@@ -23,7 +23,7 @@ function ItemsList({ cost, setCost }) {
                 ))
             }
             <br></br>
-            <button onClick={HandleClearCart}>clear cart</button>
+            <button onClick={HandleClearCart}>Clear Cart</button>
         </>
     );
 };
