@@ -1,11 +1,13 @@
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import './App.css';
 import ItemsList from './components/ItemList/ItemsList';
-import { useState } from "react"
 import Header from './components/Header/Header';
 import Total from './components/Total/Total';
 import Checkout from './components/Checkout/Checkout';
 import Thanks from './components/Thanks/Thanks';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Footer from './components/Footer/Footer';
 
 function App() {
   
@@ -18,7 +20,8 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <ItemsList cost={cost} setCost={setCost}/>
+            <h2>Items:</h2>
+            <table><ItemsList cost={cost} setCost={setCost}/></table>
             <Total cost={cost}/>
             <Checkout />
           </Route>
@@ -27,6 +30,7 @@ function App() {
           </Route>
         </Switch>
       </div>
+      <Footer />
       </div>
     </Router>
   );
