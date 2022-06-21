@@ -6,11 +6,13 @@ function Total({ cost }) {
 
     return (
         <div>
-            <h2>Total</h2>
-            <div>cost: ${cost.toFixed(2)}</div>
-            <div>Tax Rate: {taxRate}%</div>
-            <div>Tax: ${(cost * taxRate/100).toFixed(2)}</div>
-            <div>Total cost: ${(cost * (1 + taxRate/100)).toFixed(2)}</div>
+            <h2 className='Title'>Total</h2>
+            <div className='Total'>
+                <div>Gross Price: ${cost.toFixed(2)}</div>
+                <div>Tax Rate: {taxRate}%</div>
+                <div>Tax: ${(cost * taxRate/100).toFixed(2)}</div>
+                <div>Net Price: ${(cost * (1 + taxRate/100)).toFixed(2)}</div>
+            </div>
         </div>
     )
 }
