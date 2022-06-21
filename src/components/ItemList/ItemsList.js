@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import ItemListElement from "./ItemListElement";
+import './ItemList.css';
 
 function ItemsList({ cost, setCost }) {
     const [ items, setItems ] = useState([]);
@@ -10,13 +11,8 @@ function ItemsList({ cost, setCost }) {
             .then(data => setItems(data));
     }, []);
 
-    const HandleClearCart = (event) => {
-        setCost(0.0)
-    };
-
     return(
         <>
-            <h2>Items:</h2>
             {
                 items.map((item) => (
                     <ItemListElement key={item.id} item={item} cost={cost} setCost={setCost}/>

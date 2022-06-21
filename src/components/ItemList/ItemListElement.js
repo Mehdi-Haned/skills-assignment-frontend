@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './ItemList.css';
 
 function ItemListElement({ item, cost, setCost }) {
     
@@ -35,10 +36,15 @@ function ItemListElement({ item, cost, setCost }) {
     return(
         <>
             <tr>
-                <td><input type="checkbox" value={item.cost} onChange={HandleCheck}/>{item.name}</td>
+                <td>
+                    <label className="container">
+                    <input type="checkbox" value={item.cost} onChange={HandleCheck}/>{item.name}
+                    <span class="checkmark"></span>
+                    </label>
+                </td>
                 <td className="wider"></td>
                 <td>${price}</td>
-                <td><button onClick={HandleClick}>More details</button></td>
+                <td><button className="SeeMore" onClick={HandleClick}>More details</button></td>
             </tr>
             {itemDetails  && (
                     <tr>

@@ -12,6 +12,7 @@ function App() {
     <div>
       <Header/>
     <div className="App">
+          <h2>Items:</h2>
           <table><ItemsList cost={cost} setCost={setCost}/></table>
           <h2>Cost: {cost.toFixed(2)}$</h2>
     </div>
