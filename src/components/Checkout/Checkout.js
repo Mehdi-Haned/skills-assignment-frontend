@@ -5,7 +5,7 @@ function Checkout() {
 
     return (
         <Link to='/checkout'>
-            <button type="button" className='Checkout'>
+            <button type="button" className='button'>
                 Proceed to Checkout
             </button>
         </Link>
