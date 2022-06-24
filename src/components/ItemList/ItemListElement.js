@@ -1,10 +1,9 @@
-import { useState } from "react"
 import './ItemList.css';
+import useCollapse from 'react-collapsed';
 
 function ItemListElement({ item, cost, setCost }) {
-    
-    const [ itemDetails, setItemDetails ] = useState(null)
-    const [ visible, setVisible ] = useState(true) //if true, then when you press the button, details appear
+
+    const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
     const price = item.cost
     
     const HandleCheck = (event) => {
@@ -20,39 +19,30 @@ function ItemListElement({ item, cost, setCost }) {
         }
     };
 
-    const HandleClick = (event) => {
-        if (visible) {
-            fetch(`https://we-accelerate-group199-backend.herokuapp.com/api/v1/items/${item.id}`)
-            .then(res => res.json())
-            .then(res => setItemDetails(res))
-            setVisible(false)
-        } else {
-            setVisible(true)
-            setItemDetails(null)
-        }
-    
-    };
-
     return(
         <>
             <tr>
                 <td>
                     <label className="container">
-                    <input type="checkbox" value={item.cost} onChange={HandleCheck}/>{item.name}
-                    <span class="checkmark"></span>
+                        <input type="checkbox" value={item.cost} onChange={HandleCheck}/>{item.name}
+                        <span class="checkmark"></span>
                     </label>
                 </td>
                 <td className="wider"></td>
                 <td>${price}</td>
-                <td><button className="SeeMore" onClick={HandleClick}>More details</button></td>
+                <td><button className="SeeMore" {...getToggleProps()}>
+                        {isExpanded ? 'Less Details' : 'More Details'}
+                    </button>
+                </td>
             </tr>
-            {itemDetails  && (
-                    <tr>
-                    Price: ${itemDetails.cost}<br></br>
-                    Brand: {itemDetails.brand}<br></br>
-                    Number in stock: {itemDetails.stock}
-                    </tr>
-                )}
+        <div {...getCollapseProps()}>
+            <div>
+                Price: ${item.cost}<br></br>
+                Brand: {item.brand}<br></br>
+                Number in stock: {item.stock}
+            </div>   
+            
+        </div>     
         </>
     )
 };
